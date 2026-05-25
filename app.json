@@ -48,24 +48,7 @@
           "cameraPermission": "Allow Macros to use the camera to photograph your food."
         }
       ],
-      [
-        "react-native-android-widget",
-        {
-          "widgets": [
-            {
-              "name": "CalorieMacros",
-              "label": "Macros Calories",
-              "minWidth": "180dp",
-              "minHeight": "110dp",
-              "targetCellWidth": 3,
-              "targetCellHeight": 2,
-              "description": "Shows calories consumed vs daily target",
-              "previewImage": "./assets/widget-preview.png",
-              "updatePeriodMillis": 0
-            }
-          ]
-        }
-      ]
+      "expo-sqlite"
     ]
   }
 }

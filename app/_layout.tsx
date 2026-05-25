@@ -7,7 +7,6 @@ import {
   requestNotificationPermission,
   scheduleDailyReminder,
 } from '@/services/notifications';
-import { updateWidget } from '@/services/widget';
 import { useStore, DEFAULT_SETTINGS } from '@/store/useStore';
 
 export default function RootLayout() {
@@ -39,6 +38,8 @@ export default function RootLayout() {
       } catch (e) {
         console.error('Database init failed:', e);
         setError(String(e));
+        setReady(true);
+        return;
       }
 
       try {
@@ -57,7 +58,6 @@ export default function RootLayout() {
   useEffect(() => {
     const sub = AppState.addEventListener('change', (state) => {
       if (state === 'active') {
-        updateWidget(todayTotals, settings).catch(() => {});
         const remaining = Math.max(0, settings.calorieTarget - todayTotals.calories);
         scheduleDailyReminder(
           settings.notificationTime,

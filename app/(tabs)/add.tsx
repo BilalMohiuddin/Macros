@@ -9,7 +9,6 @@ import * as Crypto from 'expo-crypto';
 import { useRouter } from 'expo-router';
 import { analyzeFoodPhoto } from '@/services/anthropic';
 import { insertMeal, getDailyTotals } from '@/services/db';
-import { updateWidget } from '@/services/widget';
 import { scheduleDailyReminder } from '@/services/notifications';
 import { useStore } from '@/store/useStore';
 import { AIFoodAnalysis } from '@/types';
@@ -124,9 +123,7 @@ export default function AddFoodScreen() {
       const totals = await getDailyTotals(date);
       setTodayTotals(totals);
 
-      await updateWidget(totals, settings);
-
-      const remaining = Math.max(0, settings.calorieTarget - totals.calories);
+const remaining = Math.max(0, settings.calorieTarget - totals.calories);
       await scheduleDailyReminder(
         settings.notificationTime,
         Math.round(remaining),

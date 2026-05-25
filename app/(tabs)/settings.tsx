@@ -176,12 +176,6 @@ export default function SettingsScreen() {
         )}
       </Pressable>
 
-      <View style={styles.widgetInfo}>
-        <Text style={styles.widgetInfoTitle}>Home Screen Widget</Text>
-        <Text style={styles.widgetInfoText}>
-          Long-press your Android home screen → Widgets → find "Macros Calories" to add the widget.
-        </Text>
-      </View>
     </ScrollView>
   );
 }
@@ -227,13 +221,4 @@ const styles = StyleSheet.create({
   },
   saveBtnText: { color: '#FFFFFF', fontWeight: '700', fontSize: 16 },
   disabled: { opacity: 0.5 },
-  widgetInfo: {
-    backgroundColor: '#1C1C1E',
-    borderRadius: 16,
-    padding: 16,
-    borderWidth: 1,
-    borderColor: '#2C2C2E',
-  },
-  widgetInfoTitle: { color: '#AEAEB2', fontSize: 14, fontWeight: '600', marginBottom: 6 },
-  widgetInfoText: { color: '#636366', fontSize: 13, lineHeight: 18 },
 });

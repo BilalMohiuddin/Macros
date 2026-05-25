@@ -7,7 +7,6 @@ import { CalorieRing } from '@/components/CalorieRing';
 import { MacroBar } from '@/components/MacroBar';
 import { MealCard } from '@/components/MealCard';
 import { getMealsForDate, getDailyTotals, deleteMeal } from '@/services/db';
-import { updateWidget } from '@/services/widget';
 import { useStore } from '@/store/useStore';
 
 function todayDate() {
@@ -39,7 +38,6 @@ export default function HomeScreen() {
       removeMealFromStore(id);
       const totals = await getDailyTotals(todayDate());
       setTodayTotals(totals);
-      await updateWidget(totals, settings);
     } catch {
       Alert.alert('Error', 'Could not delete meal.');
     }
